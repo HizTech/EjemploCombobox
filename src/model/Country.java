@@ -43,11 +43,18 @@ public class Country {
         this.city = city;
     }
 
+    
+    /*
     @Override
     public String toString() {
-        return "id: "+id+ 
+        return  "id: "+id+ 
                 "country: "+country+
-                "city=" + city;
+                "city:" + city;
+    }*/
+
+    @Override
+    public String toString() {
+        return "Country{" + "id=" + id + ", country=" + country + ", city=" + city + '}';
     }
     
     

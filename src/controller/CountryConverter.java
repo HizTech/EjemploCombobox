@@ -18,10 +18,37 @@ import model.Country;
  */
 public class CountryConverter extends StringConverter<Country> {
 
-    ComboBox<Country> combobox;
+    ComboBox<Country> combobox; 
     
     public CountryConverter(ComboBox<Country> combobox){
         this.combobox = combobox;
+    }
+     
+    
+    private void updateCell(){
+    
+        combobox.setCellFactory(new Callback<ListView<Country>, ListCell<Country>>() {
+            @Override
+            public ListCell<Country> call(ListView<Country> param) {
+                
+                ListCell cell = new ListCell<Country>(){
+                
+                    @Override
+                    public void updateItem(Country item, boolean empty){
+                        super.updateItem(item, empty);
+                        if(empty){
+                            setText("");
+                        }else{
+                            setText(item.getCountry());
+                        }
+                    }
+                
+                };
+
+                return cell;
+            }
+        });
+    
     }
     
     @Override
@@ -30,47 +57,21 @@ public class CountryConverter extends StringConverter<Country> {
     }
 
     @Override
-    public Country fromString(String string) {
+    public Country fromString(String string) { 
+        
+        Country country = combobox.getValue();
+        
+        if(country!=null){
+            country.setCountry(string);
+            updateCell();                    
+            return country;    
+        }else{
+            Country newCountry = new Country(combobox.getItems().size()+1, string, "");
+            return newCountry;
+        }
+        
+        
 
-        Country person = combobox.getValue();        
-        
-        if (person == null) {            
-            Country newPerson = new Country();
-            newPerson.setCountry(string);
-            
-            return newPerson;
-        } else {
-            
-            person.setCountry(string);
-            
-combobox.setCellFactory(
-    new Callback<ListView<Country>, ListCell<Country>>() {
-        @Override
-        public ListCell<Country> call(ListView<Country> p) {
-            ListCell cell = new ListCell<Object>() {
-                @Override
-                protected void updateItem(Object item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (empty) {
-                        setText("");
-                    } else {
-                        setText(getStringField(item));
-                    }
-                }
-                
-                public String getStringField(Object item){
-                    return ((Country) item).getCountry();
-                }
-            };return cell;
-        }
-    });  
-            
-            return person ;
-        }
-        
-        
-        
-        
     }
     
 }

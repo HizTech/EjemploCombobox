@@ -96,8 +96,8 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <ComboBox fx:id="comboboxCountries" editable="true" onAction="#comboboxEvents" prefHeight="33.0" prefWidth="259.0" />
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="259.0" text="Extraer">
+                  <ComboBox fx:id="comboboxCountries" editable="true" onAction="#comboboxEvents" prefHeight="33.0" prefWidth="259.0" visibleRowCount="5" />
+                  <Button fx:id="btnPull" mnemonicParsing="false" onAction="#comboboxEvents" prefHeight="30.0" prefWidth="259.0" text="Extraer">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -118,7 +118,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextArea fx:id="textPerson1" editable="false" prefHeight="100.0" prefWidth="100.0" wrapText="true" />
+                  <TextArea fx:id="textCountry" editable="false" prefHeight="100.0" prefWidth="100.0" wrapText="true" />
                </children>
             </VBox>
          </children>

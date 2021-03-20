@@ -15,11 +15,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.util.Callback;
 import javax.swing.JOptionPane;
 import model.Country;
 import model.Person;
@@ -40,10 +37,10 @@ public class ComboboxViewController implements Initializable {
     private TextField textSearch;
     
     @FXML
-    private Button btnSearch;
+    private Button btnSearch, btnPull;
     
     @FXML
-    private TextArea textPerson;
+    private TextArea textPerson, textCountry;
     
     @FXML
     public void comboboxEvents(ActionEvent e){
@@ -56,7 +53,7 @@ public class ComboboxViewController implements Initializable {
         
         }else if(evt.equals(comboboxCountries)){
         
-            System.out.println(comboboxCountries.getItems().size());
+            textCountry.setText(comboboxCountries.getSelectionModel().getSelectedItem().toString());
             
         }else if(evt.equals(btnSearch)){
         
@@ -77,8 +74,9 @@ public class ComboboxViewController implements Initializable {
             }catch(HeadlessException | NumberFormatException ex){
                JOptionPane.showMessageDialog(null, "Error de formato; ingrese un valor numerico ", "ERROR", JOptionPane.ERROR_MESSAGE);                
             }
-            
-            
+                        
+        }else if(evt.equals(btnPull)){
+            JOptionPane.showMessageDialog(null, showList());
         }
     
     }
@@ -91,8 +89,7 @@ public class ComboboxViewController implements Initializable {
         comboboxPerson.getSelectionModel().select(0);
         
         comboboxCountries.getItems().addAll(createCollectioncCountries());        
-        comboboxCountries.setConverter(new CountryConverter(comboboxCountries));       
-        //comboboxCountries.getSelectionModel().select(0);
+        comboboxCountries.setConverter(new CountryConverter(comboboxCountries));  
         
           
         
@@ -122,9 +119,16 @@ public class ComboboxViewController implements Initializable {
         
         ArrayList<Country> countries = new ArrayList<>();
 
-        countries.add(new Country(1, "Colombia", "Bogota"));
-        countries.add(new Country(1, "Argentina", "Buenos Aires"));
         countries.add(new Country(1, "Brasil", "Brasilia"));        
+        countries.add(new Country(2, "Argentina", "Buenos Aires"));        
+        countries.add(new Country(3, "Colombia", "Bogota"));
+        countries.add(new Country(4, "Perú", "Lima"));
+        countries.add(new Country(5, "Chile", "Santiago"));
+        countries.add(new Country(6, "Venezuela", "Caracas"));
+        countries.add(new Country(7, "Ecuador", "Quito"));        
+        countries.add(new Country(8, "Bolivia", "La Paz"));        
+        countries.add(new Country(9, "Uruguay", "Montevideo"));        
+        countries.add(new Country(10, "Paraguay", "Asunción"));        
                 
         return countries;
     
@@ -147,6 +151,15 @@ public class ComboboxViewController implements Initializable {
         }
         
         return index;
+    }
+
+    private String showList() {
+        ObservableList<Country> list = comboboxCountries.getItems();
+        String show="";
+        for (int i = 0; i < list.size(); i++) {
+            show = show + list.get(i) + "\n";
+        }
+        return show;
     }
     
     
