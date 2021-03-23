@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package utilities;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
@@ -66,7 +66,7 @@ public class CountryConverter extends StringConverter<Country> {
             updateCell();                    
             return country;    
         }else{
-            Country newCountry = new Country(combobox.getItems().size()+1, string, "");
+            Country newCountry = new Country(combobox.getItems().size()+1, string, "", null);
             return newCountry;
         }
         

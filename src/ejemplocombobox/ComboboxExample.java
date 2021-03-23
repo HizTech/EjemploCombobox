@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,9 +18,29 @@ import javafx.stage.Stage;
  */
 public class ComboboxExample extends Application {
     
+    String URLCombobox="/view/ComboboxView.fxml";
+
+    
+    
+    @Override
+    public void init(){
+        
+        int option = Integer.parseInt(JOptionPane.showInputDialog("Elija una Opción \n"+
+                                                        "1- Interfaz # 1 (Lección 20 y 21)\n"+
+                                                        "2- Interfaz # 2 (Lección 22...)"));
+        
+        if(option==1){
+            URLCombobox="/view/ComboboxView.fxml";
+        }else{
+            URLCombobox="/view/ComboboxViewImage.fxml";        
+        }
+        
+    }
+    
+    
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/ComboboxView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(URLCombobox));
         
         Scene scene = new Scene(root);
         

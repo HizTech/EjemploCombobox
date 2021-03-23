@@ -20,6 +20,8 @@ import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import model.Country;
 import model.Person;
+import utilities.CountryConverter;
+import utilities.PersonConverter;
 
 /**
  *
@@ -119,16 +121,16 @@ public class ComboboxViewController implements Initializable {
         
         ArrayList<Country> countries = new ArrayList<>();
 
-        countries.add(new Country(1, "Brasil", "Brasilia"));        
-        countries.add(new Country(2, "Argentina", "Buenos Aires"));        
-        countries.add(new Country(3, "Colombia", "Bogota"));
-        countries.add(new Country(4, "Perú", "Lima"));
-        countries.add(new Country(5, "Chile", "Santiago"));
-        countries.add(new Country(6, "Venezuela", "Caracas"));
-        countries.add(new Country(7, "Ecuador", "Quito"));        
-        countries.add(new Country(8, "Bolivia", "La Paz"));        
-        countries.add(new Country(9, "Uruguay", "Montevideo"));        
-        countries.add(new Country(10, "Paraguay", "Asunción"));        
+        countries.add(new Country(1, "Brasil", "Brasilia", null));        
+        countries.add(new Country(2, "Argentina", "Buenos Aires", null));        
+        countries.add(new Country(3, "Colombia", "Bogota", null));
+        countries.add(new Country(4, "Perú", "Lima", null));
+        countries.add(new Country(5, "Chile", "Santiago", null));
+        countries.add(new Country(6, "Venezuela", "Caracas", null));
+        countries.add(new Country(7, "Ecuador", "Quito", null));        
+        countries.add(new Country(8, "Bolivia", "La Paz", null));        
+        countries.add(new Country(9, "Uruguay", "Montevideo", null));        
+        countries.add(new Country(10, "Paraguay", "Asunción", null));        
                 
         return countries;
     

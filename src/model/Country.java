@@ -1,5 +1,7 @@
 package model;
 
+import javafx.scene.image.Image;
+
 /**
  *
  * @author JorgeLPR
@@ -9,11 +11,13 @@ public class Country {
     private int id;
     private String country;
     private String city;
+    private Image flag;
 
-    public Country(int id, String country, String city) {
+    public Country(int id, String country, String city, Image flag) {
         this.id = id;
         this.country = country;
         this.city = city;
+        this.flag=flag;
     }
 
     public Country() {
@@ -43,15 +47,14 @@ public class Country {
         this.city = city;
     }
 
-    
-    /*
-    @Override
-    public String toString() {
-        return  "id: "+id+ 
-                "country: "+country+
-                "city:" + city;
-    }*/
+    public Image getFlag() {
+        return flag;
+    }
 
+    public void setFlag(Image flag) {
+        this.flag = flag;
+    }
+        
     @Override
     public String toString() {
         return "Country{" + "id=" + id + ", country=" + country + ", city=" + city + '}';
