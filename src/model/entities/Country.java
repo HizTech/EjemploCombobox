@@ -1,4 +1,4 @@
-package model;
+package model.entities;
 
 import javafx.scene.image.Image;
 
@@ -12,7 +12,16 @@ public class Country {
     private String country;
     private String city;
     private Image flag;
+    private byte [] flagBytes;
 
+    public Country(int id, String country, String city, Image flag, byte[] flagBytes) {
+        this.id = id;
+        this.country = country;
+        this.city = city;
+        this.flag = flag;
+        this.flagBytes = flagBytes;
+    }
+    
     public Country(int id, String country, String city, Image flag) {
         this.id = id;
         this.country = country;
@@ -54,7 +63,15 @@ public class Country {
     public void setFlag(Image flag) {
         this.flag = flag;
     }
-        
+
+    public byte[] getFlagBytes() {
+        return flagBytes;
+    }
+
+    public void setFlagBytes(byte[] flagBytes) {
+        this.flagBytes = flagBytes;
+    }
+                
     @Override
     public String toString() {
         return "Country{" + "id=" + id + ", country=" + country + ", city=" + city + '}';

@@ -24,7 +24,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="173.0" HBox.hgrow="ALWAYS">
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="21.0" prefWidth="173.0" text="Obtener Info. Base de Datos" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -68,6 +68,27 @@
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
+               <children>
+                  <Label text="Listado Paises">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ComboBox fx:id="comboboxCountriesDB" onAction="#comboboxEvents" prefHeight="33.0" prefWidth="259.0" visibleRowCount="5" />
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="16.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <TextArea fx:id="textCountryDB" prefHeight="200.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextArea>
+               </children>
             </VBox>
          </children>
       </HBox>

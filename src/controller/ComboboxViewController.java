@@ -18,8 +18,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
-import model.Country;
-import model.Person;
+import model.entities.Country;
+import model.entities.Person;
 import utilities.CountryConverter;
 import utilities.PersonConverter;
 

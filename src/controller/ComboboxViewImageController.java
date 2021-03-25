@@ -1,25 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
+import java.io.File;
+import java.io.IOException;
 import utilities.IconCell;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.HBox;
 import javafx.util.Callback;
-import model.Country;
+import model.CountryDAO;
+import model.entities.Country;
 import utilities.GUIController;
 
 
@@ -30,17 +27,13 @@ import utilities.GUIController;
  */
 public class ComboboxViewImageController implements Initializable {
     
-    /*
-    @FXML
-    private ComboBox<HBox> comboboxCountries;
-    */
-    
     @FXML 
     private TextArea textCountry;
-    
-    
+        
     @FXML
-    private ComboBox<Country> comboboxCountries;
+    private ComboBox<Country> comboboxCountries, comboboxCountriesDB;
+    
+    private final CountryDAO model = new CountryDAO();
     
     
     @FXML
@@ -63,26 +56,7 @@ public class ComboboxViewImageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        /*
-        comboboxCountries.getItems().addAll(
-                GUIController.generateHBox("argentina"),
-                GUIController.generateHBox("bolivia"),
-                GUIController.generateHBox("chile"),
-                GUIController.generateHBox("colombia"),
-                GUIController.generateHBox("ecuador"),
-                GUIController.generateHBox("francia"),
-                GUIController.generateHBox("mexico"),
-                GUIController.generateHBox("panama"),
-                GUIController.generateHBox("paraguay"),
-                GUIController.generateHBox("peru"),
-                GUIController.generateHBox("spain"),
-                GUIController.generateHBox("united_states"),
-                GUIController.generateHBox("uruguay")                
-        );*/
-        
-        
-        
+                
         comboboxCountries.getItems().addAll(createCollectioncCountries());
         
         comboboxCountries.setCellFactory(new Callback<ListView<Country>, ListCell<Country>>() {
@@ -93,6 +67,21 @@ public class ComboboxViewImageController implements Initializable {
         });
         
         comboboxCountries.setButtonCell(new IconCell());
+          
+        
+        ArrayList<Country> list = model.selectCountry();
+        
+        if(list.size()>0){
+            comboboxCountriesDB.getItems().addAll(list);
+            comboboxCountriesDB.setCellFactory(new Callback<ListView<Country>, ListCell<Country>>() {
+                @Override
+                public ListCell<Country> call(ListView<Country> param) {
+                    return new IconCell();
+                }
+            });
+            comboboxCountriesDB.setButtonCell(new IconCell());
+        }
+        
         
         
     }    
@@ -116,9 +105,10 @@ public class ComboboxViewImageController implements Initializable {
         countries.add(new Country(12, "Estados Unidos", "Washington D. C.", GUIController.getImage("united_states"))); 
         countries.add(new Country(13, "Uruguay", "Montevideo", GUIController.getImage("uruguay"))); 
 
-        
         return countries;
     
     }    
+    
+
     
 }

@@ -6,7 +6,7 @@
 package utilities;
 
 import javafx.scene.control.ListCell;
-import model.Country;
+import model.entities.Country;
 
 /**
  *

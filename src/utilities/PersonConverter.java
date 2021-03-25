@@ -1,7 +1,7 @@
 package utilities;
 
 import javafx.util.StringConverter;
-import model.Person;
+import model.entities.Person;
 
 /**
  *
