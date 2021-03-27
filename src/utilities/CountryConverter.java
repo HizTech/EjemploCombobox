@@ -24,6 +24,9 @@ public class CountryConverter extends StringConverter<Country> {
         this.combobox = combobox;
     }
      
+    public CountryConverter(){
+        this.combobox=null;
+    }
     
     private void updateCell(){
     
@@ -59,19 +62,23 @@ public class CountryConverter extends StringConverter<Country> {
     @Override
     public Country fromString(String string) { 
         
-        Country country = combobox.getValue();
-        
-        if(country!=null){
-            country.setCountry(string);
-            updateCell();                    
-            return country;    
+        if(combobox != null){
+
+            Country country = combobox.getValue();
+
+            if(country!=null){
+                country.setCountry(string);
+                updateCell();                    
+                return country;    
+            }else{
+                Country newCountry = new Country(combobox.getItems().size()+1, string, "", null);
+                return newCountry;
+            }
+                        
         }else{
-            Country newCountry = new Country(combobox.getItems().size()+1, string, "", null);
-            return newCountry;
+            return null;
         }
         
-        
-
     }
     
 }

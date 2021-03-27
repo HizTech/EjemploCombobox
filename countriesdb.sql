@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 25-03-2021 a las 18:26:15
+-- Tiempo de generación: 27-03-2021 a las 17:31:33
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 7.2.11
 
@@ -33,6 +33,121 @@ CREATE TABLE `cities` (
   `id_country` int(11) NOT NULL,
   `city` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `cities`
+--
+
+INSERT INTO `cities` (`id`, `id_country`, `city`) VALUES
+(105, 14, 'Buenos Aires'),
+(106, 14, 'Córdoba'),
+(107, 14, 'Rosario'),
+(108, 14, 'Mar del Plata'),
+(109, 14, 'San Miguel de Tucumán'),
+(110, 14, 'Salta'),
+(111, 14, 'Santa Fe'),
+(112, 14, 'Corrientes'),
+(113, 2, 'Santa Cruz de la Sierra'),
+(114, 2, 'El Alto'),
+(115, 2, 'La Paz'),
+(116, 2, 'Cochabamba'),
+(117, 2, 'Oruro'),
+(118, 2, 'Sucre'),
+(119, 2, 'Tarija'),
+(120, 2, 'Potosí'),
+(121, 3, 'Santiago'),
+(122, 3, 'Concepción'),
+(123, 3, 'Valparaíso'),
+(124, 3, 'La Serena'),
+(125, 3, 'Temuco'),
+(126, 3, 'Antofagasta'),
+(127, 3, 'Punta Arenas'),
+(128, 3, 'Iquique'),
+(129, 4, 'Bogotá'),
+(130, 4, 'Medellin'),
+(131, 4, 'Cali'),
+(132, 4, 'Barranquilla'),
+(133, 4, 'Cartagena'),
+(134, 4, 'Bucaramanga'),
+(135, 4, 'Ibagué'),
+(136, 4, 'Pereira'),
+(137, 5, 'Guayaquil'),
+(138, 5, 'Quito'),
+(139, 5, 'Cuenca'),
+(140, 5, 'Santo Domingo'),
+(141, 5, 'Machala'),
+(142, 5, 'Durán'),
+(143, 5, 'Manta'),
+(144, 5, 'Portoviejo'),
+(145, 11, 'Madrid'),
+(146, 11, 'Barcelona'),
+(147, 11, 'Valencia'),
+(148, 11, 'Sevilla'),
+(149, 11, 'Zaragoza'),
+(150, 11, 'Málaga'),
+(151, 11, 'Murcia'),
+(152, 11, 'Palma de Mallorca'),
+(153, 11, 'Las Palmas de Gran Canaria'),
+(154, 11, 'Bilbao'),
+(155, 12, 'New York'),
+(156, 12, 'Washington D.C.'),
+(157, 12, 'Miami'),
+(158, 12, 'San Diego'),
+(159, 12, 'Los Ángeles'),
+(160, 12, 'Chicago'),
+(161, 12, 'Houston'),
+(162, 6, 'París'),
+(163, 6, 'Marsella'),
+(164, 6, 'Lyon'),
+(165, 6, 'Toulouse'),
+(166, 6, 'Niza'),
+(167, 6, 'Nantes'),
+(168, 6, 'Estrasburgo'),
+(169, 6, 'Montpellier'),
+(170, 7, 'Guadalajara'),
+(171, 7, 'Guanajuato'),
+(172, 7, 'Puebla'),
+(173, 7, 'Morelia'),
+(174, 7, 'Monterrey'),
+(175, 7, 'Querétaro'),
+(176, 7, 'Merida'),
+(177, 7, 'Ciudad de México'),
+(178, 7, 'Xalapa'),
+(179, 7, 'Zacatecas'),
+(180, 8, 'Panamá'),
+(181, 8, 'San Miguelito'),
+(182, 8, 'Arraiján'),
+(183, 8, 'Colón'),
+(184, 8, 'La Chorrera'),
+(185, 8, 'David'),
+(186, 8, 'Santiago de Veraguas'),
+(187, 8, 'Chitré'),
+(188, 9, 'Asunción'),
+(189, 9, 'Ciudad del Este'),
+(190, 9, 'Luque'),
+(191, 9, 'San Lorenzo'),
+(192, 9, 'Capiatá'),
+(193, 9, 'Lambaré'),
+(194, 9, 'Fernando de la Mora'),
+(195, 9, 'Limpio'),
+(196, 10, 'Lima'),
+(197, 10, 'Arequipa'),
+(198, 10, 'Callao'),
+(199, 10, 'Trujillo'),
+(200, 10, 'Chiclayo'),
+(201, 10, 'Piura'),
+(202, 10, 'Huancayo'),
+(203, 10, 'Cusco'),
+(204, 10, 'Chimbote'),
+(205, 10, 'Iquitos'),
+(206, 13, 'Montevideo'),
+(207, 13, 'Ciudad de la Costa'),
+(208, 13, 'Salto'),
+(209, 13, 'Paysandú'),
+(210, 13, 'Maldonado'),
+(211, 13, 'Rivera'),
+(212, 13, 'Las Piedras'),
+(213, 13, 'Tacuarembo');
 
 -- --------------------------------------------------------
 
@@ -102,7 +217,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT de la tabla `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
 
 --
 -- AUTO_INCREMENT de la tabla `countries`

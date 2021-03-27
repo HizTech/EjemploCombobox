@@ -27,12 +27,19 @@ public class ComboboxExample extends Application {
         
         int option = Integer.parseInt(JOptionPane.showInputDialog("Elija una Opción \n"+
                                                         "1- Interfaz # 1 (Lección 20 y 21)\n"+
-                                                        "2- Interfaz # 2 (Lección 22...)"));
+                                                        "2- Interfaz # 2 (Lección 22 y 23)\n"
+                                                      + "3- ComboBox Anidados (Lección 24)"));
         
-        if(option==1){
-            URLCombobox="/view/ComboboxView.fxml";
-        }else{
-            URLCombobox="/view/ComboboxViewImage.fxml";        
+        switch (option) {
+            case 1:
+                URLCombobox="/view/ComboboxView.fxml";
+                break;
+            case 2:
+                URLCombobox="/view/ComboboxViewImage.fxml";                
+                break;
+            default:
+                URLCombobox="/view/ComboboxDependent.fxml";
+                break;
         }
         
     }
